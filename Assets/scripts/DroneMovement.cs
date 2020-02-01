@@ -38,7 +38,7 @@ public class DroneMovement : MonoBehaviour
             Mathf.MoveTowards(rb.velocity.x, desiredVelocity.x, maxSpeedChange);
         velocity.y =
             Mathf.MoveTowards(rb.velocity.y, desiredVelocity.y, maxSpeedChange);
-        if (Vector3.zero == desiredVelocity)
+        if (0 == throttle)
             velocity *= drag;
         rb.velocity = velocity;
         angularVelocity= Vector3.RotateTowards(angularVelocity, rotationInput, maxAngularAcceleration, 1);
@@ -46,8 +46,8 @@ public class DroneMovement : MonoBehaviour
     }
     void TestDroneInput()
     {
-        throttle =  Input.GetAxis("Vertical");
-        rotationInput = Vector3.RotateTowards(transform.up, Input.GetAxis("Horizontal")*transform.right, 0.1f, 0);
+        throttle =  Input.GetAxisRaw("Vertical");
+        rotationInput = Vector3.RotateTowards(transform.up, Input.GetAxisRaw("Horizontal")*transform.right, 0.1f, 0);
     }
     public void SetRotationInput(Vector2 newRot)
     {
