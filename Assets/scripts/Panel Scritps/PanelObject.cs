@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class PanelObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    bool holding = true;
+    
+    protected void Update(){
+        if(holding)
+            OnHold();
+    }
+
+    public virtual void OnHold(){
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public virtual void OnDown(){
+        holding = true;
     }
 
-    public void OnDown(){
-        
-    }
-
-    public void OnUp(){
-        
+    public virtual void OnUp(){
+        holding = false;
     }
 }
