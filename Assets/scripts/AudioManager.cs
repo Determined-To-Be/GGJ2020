@@ -154,6 +154,6 @@ public class AudioManager : MonoBehaviour
 
     // void PlayTestSample ()
     // {
-    //     PlaySoundOnce(Channel.player, 0);
+    //     PlaySoundOnce(Channel.player, GetSample("player_button_push"));
     // }
 }
