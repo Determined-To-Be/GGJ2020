@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
-using UnityEngine.Events;
+// using UnityEngine.Events;
 [RequireComponent(typeof(AudioSource))]
 
 public class AudioManager : MonoBehaviour
 {
-    // create matching group in mixer
-    public enum Channel { player, friendly, hostile, ambientActive, ambientPassive, background };
+    public enum Channel { player, friendly, hostile, ambientActive, ambientPassive, background }; // corresponds to audio group of the same name in the mixer
 
     #pragma warning disable 0649
-    [SerializeField] float variety;
-    [SerializeField] AudioClip[] samples;
+    [SerializeField] float variety, ambientPassiveMaxWait, ambientPassiveMinWait;
+    [SerializeField] AudioClip[] samples; // naming: channelName##.wav
     #pragma warning restore 0649
     
+    string[] channelNames;
+
     AudioSource[] channels;
     AudioMixer mixer;
 
@@ -37,11 +38,11 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // start bg music
-        channels[(int) Channel.background].loop = true;
-        PlaySound(Channel.background, GetSample("background.wav"));
-
-        // PlayAmbientClips();
+        // start bg track
+        int chin = (int) Channel.background;
+        channels[chin].loop = true;
+        PlaySound(Channel.background, GetSample(channelNames[chin]));
+        StartCoroutine(PlayAmbient()); // start random sfx
 
         // // sample event
         // if (playTestSample == null)
@@ -61,10 +62,10 @@ public class AudioManager : MonoBehaviour
 
         mixer = Resources.Load("Master") as AudioMixer;
         channels = new AudioSource[System.Enum.GetNames(typeof(Channel)).Length];
-        string[] names = Channel.GetNames(typeof(Channel));
+        channelNames = Channel.GetNames(typeof(Channel));
         for (int chan = 0; chan < channels.Length; chan++)
         {
-            channels[chan].outputAudioMixerGroup = mixer.FindMatchingGroups(names[chan])[0];
+            channels[chan].outputAudioMixerGroup = mixer.FindMatchingGroups(channelNames[chan])[0];
         }
     }
 
@@ -120,21 +121,36 @@ public class AudioManager : MonoBehaviour
         return null;
     }
 
-    // IEnumerator DoAmbientClips()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(Random.Range(10f, 30f));
-    //         player[2].clip = ambientClips[Mathf.FloorToInt(Random.Range(0f, (ambientClips.Length - Mathf.Epsilon)))];
-    //         player[2].Play();
-    //         yield return new WaitWhile(() => player[2].isPlaying);
-    //     }
-    // }
+    public AudioSource GetChannel(Channel chan)
+    {
+        return channels[(int) chan];
+    }
+    public AudioClip GetRandomSample(string sub)
+    {
+        AudioClip[] possible = new AudioClip[samples.Length];
+        int i = 0;
+        foreach (AudioClip smpl in samples)
+        {
+            if (smpl.name.Contains(sub))
+                possible.SetValue(smpl, i++);
+        }
+        if (i == 0)
+            return null;
+        return possible[Random.Range(0, i)];
+    }
 
-    // void PlayAmbientClips()
-    // {
-    //     StartCoroutine(DoAmbientClips());
-    // }
+    IEnumerator PlayAmbient()
+    {
+        int chin = (int) Channel.ambientPassive;
+        AudioSource chan = channels[chin];
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(ambientPassiveMaxWait, ambientPassiveMinWait));
+            chan.clip = GetRandomSample(channelNames[chin]);
+            chan.Play();
+            yield return new WaitWhile(() => chan.isPlaying);
+        }
+    }
 
     // void PlayTestSample ()
     // {

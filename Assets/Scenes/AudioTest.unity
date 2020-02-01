@@ -151,6 +151,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variety: 0.075
+  ambientPassiveMaxWait: 10
+  ambientPassiveMinWait: 30
+  samples:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &193422048
 Transform:
   m_ObjectHideFlags: 0
