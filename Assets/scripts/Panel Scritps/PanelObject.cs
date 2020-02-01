@@ -5,9 +5,9 @@ using UnityEngine;
 public class PanelObject : MonoBehaviour
 {
 
-    bool holding = true;
+    public bool holding = false;
     
-    protected void Update(){
+    public void Update(){
         if(holding)
             OnHold();
     }

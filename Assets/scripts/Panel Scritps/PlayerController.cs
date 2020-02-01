@@ -30,12 +30,16 @@ public class PlayerController : MonoBehaviour
 
     PanelObject FindPanelObject(){
         RaycastHit hit;
-        if(Physics.Raycast(this.transform.position, cam.ScreenToWorldPoint(Input.mousePosition), out hit)){
+
+        Debug.DrawRay(this.transform.position, cam.ScreenPointToRay(Input.mousePosition).direction, Color.green, 10);
+        if(Physics.Raycast(this.transform.position, cam.ScreenPointToRay(Input.mousePosition).direction, out hit, 100)){
             if(hit.transform.tag == "Interactable"){
+                Debug.DrawLine(this.transform.position, hit.point);
                 //If Interactable assume it is a Panel Object
                 return hit.transform.gameObject.GetComponent<PanelObject>();
             }
         }
+
         return null;
     }
 }

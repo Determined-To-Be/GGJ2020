@@ -6,7 +6,11 @@ using UnityEngine.Events;
 public class Button : PanelObject
 {
     
-    private float pitchMod = Random.Range(.5f, 1);
+    private float pitchMod;
+
+    public void Start(){
+        pitchMod = Random.Range(.5f, 1);
+    }
 
     [SerializeField]
     UnityEvent  onDown = new UnityEvent(),
@@ -15,15 +19,21 @@ public class Button : PanelObject
 
     public override void OnHold(){
         onHold.Invoke();
+
+        print("On Hold");
     }
 
     public override void OnDown(){
+        base.OnDown();
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
         onDown.Invoke();
+        print("On Down");
     }
 
     public override void OnUp(){
+        base.OnUp();
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_release"), 1, 1 * pitchMod);
         onDown.Invoke();
+        print("On Up");
     }
 }
