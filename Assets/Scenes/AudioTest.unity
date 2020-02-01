@@ -154,16 +154,9 @@ MonoBehaviour:
   ambientPassiveMaxWait: 10
   ambientPassiveMinWait: 30
   samples:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c8dcee74d0d78dc45a061810fd9de2f9, type: 3}
+  - {fileID: 8300000, guid: 49b0868d5d67682408181505a666724a, type: 3}
+  - {fileID: 8300000, guid: c6eb17994c65347469642c69ea0730c3, type: 3}
 --- !u!4 &193422048
 Transform:
   m_ObjectHideFlags: 0
