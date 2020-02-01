@@ -8,6 +8,8 @@ public class PirateController : MonoBehaviour
     public float speed;
     public NavMeshAgent nav;
     public Transform playerPos;
+    public bool aggro = true;
+    public Transform[] waypoints;
 
     private void Start()
     {
@@ -18,8 +20,15 @@ public class PirateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.destination = playerPos.position;
+        if (aggro)
+        {
+            nav.destination = playerPos.position;
+            // if enemy knows where player already is
+        }
+        else
+        {
+            nav.destination = waypoints[0].position;
+        }
+
     }
-
-
 }
