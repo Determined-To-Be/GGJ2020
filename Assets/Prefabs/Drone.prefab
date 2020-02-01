@@ -43,16 +43,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1340260399848484377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e520ee70b824d408302ef6cc3944da, type: 3}
+  m_Script: {fileID: 11500000, guid: d20dd74aabbde094c829bc87088e11de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   throttle: 0
   rotationInput: {x: 0, y: 0}
-  testMovement: 1
-  maxSpeed: 0.8
-  maxAcceleration: 2.5
-  maxAngularSpeed: 0.06
-  maxAngularAcceleration: 0.06
+  testMovement: 0
+  maxSpeed: 0
+  maxAcceleration: 0
+  maxAngularSpeed: 0
+  maxAngularAcceleration: 0
   drag: 0
 --- !u!50 &1340260399848484358
 Rigidbody2D:

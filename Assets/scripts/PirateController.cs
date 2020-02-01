@@ -7,20 +7,18 @@ public class PirateController : MonoBehaviour
 { 
     public float speed;
     public NavMeshAgent nav;
-   
-
-
+    public Transform playerPos;
 
     private void Start()
     {
         nav.speed = speed;
-        //nav.destination = 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        nav.destination = playerPos.position;
     }
 
 
