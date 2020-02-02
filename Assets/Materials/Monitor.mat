@@ -115,7 +115,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_48EF1BA8: 30
+    - Boolean_4579B8CB: 1
+    - Boolean_4D2F3255: 0
+    - Vector1_299FA269: 0
+    - Vector1_48EF1BA8: 15
     - Vector1_666B12A9: 0.1
     - Vector1_9164F5BC: 2
     - Vector1_C41B98D: 0.1
@@ -201,6 +204,7 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
+    - _ScreenOn: 1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -231,6 +235,7 @@ Material:
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
+    - _TurnOnProgress: 0.91
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
