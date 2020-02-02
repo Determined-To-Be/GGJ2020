@@ -11,6 +11,7 @@ public class Dial : PanelObject
     public float minAngle = 0, maxAngle = 0;
 
     AudioClip /*down, up,*/ move;
+    PanelEvent onDialChange = new PanelEvent();
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class Dial : PanelObject
 
         this.transform.localRotation = Quaternion.Euler(this.transform.localRotation.x, angle, this.transform.localRotation.z); 
         lastAngle = currAngle;
+        onDialChange.Invoke(angle);
     }
 
     public override void OnDown(){

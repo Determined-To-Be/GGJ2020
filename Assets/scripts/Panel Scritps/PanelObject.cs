@@ -16,4 +16,9 @@ public abstract class PanelObject : MonoBehaviour
     public abstract void OnDown();
 
     public abstract void OnUp();
+
+
 }
+
+[System.Serializable]
+public class PanelEvent : UnityEvent <float> {}

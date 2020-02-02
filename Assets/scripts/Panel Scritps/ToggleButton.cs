@@ -16,7 +16,7 @@ public class ToggleButton : PanelObject
     UnityEvent  onToggleDown = new UnityEvent(),
                 onToggleUp = new UnityEvent();
 
-    public bool state = false;
+    public bool state = true;
 
     public void Start(){
         pitchMod = Random.Range(.5f, 1);
