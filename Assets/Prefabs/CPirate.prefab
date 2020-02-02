@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1209700621164459581}
   m_Layer: 0
   m_Name: CPirate
-  m_TagString: Untagged
+  m_TagString: damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

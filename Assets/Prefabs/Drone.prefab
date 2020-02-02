@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 5480770482385507187}
   - component: {fileID: 8692369748234820199}
   - component: {fileID: 7287981605871693037}
+  - component: {fileID: 4775131573984141018}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +138,7 @@ MonoBehaviour:
   maxAcceleration: 2.5
   maxAngularSpeed: 0.06
   maxAngularAcceleration: 0.06
-  drag: 0
+  drag: 0.95
 --- !u!50 &5480770482385507186
 Rigidbody2D:
   serializedVersion: 4
@@ -187,10 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07da783d71bc9224eaf9ae0b488fdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partsCollected: 0
   partSprite: {fileID: 8692369746763789131}
   partPrefab: {fileID: 8711403104933535471, guid: 5d208267b72a0d94c84d88c0feedc258,
     type: 3}
+  carryPart: 0
 --- !u!114 &7287981605871693037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +207,20 @@ MonoBehaviour:
   radius: 5
   explosionEffect: {fileID: 6339915678580060714, guid: d2efd04887f68e5489295fd023b219d0,
     type: 3}
+--- !u!114 &4775131573984141018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480770482385507181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe19aadbd07c7647994c3922913b997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  knockbackMult: 500
 --- !u!1 &8692369746763789131
 GameObject:
   m_ObjectHideFlags: 0
