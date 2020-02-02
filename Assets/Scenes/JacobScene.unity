@@ -1064,7 +1064,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1e74694c180495943aec957ce4403380, type: 2}
+      objectReference: {fileID: 2100000, guid: 14ab59417abfff043b322aefc736a036, type: 2}
     - target: {fileID: -4216859302048453862, guid: c2dbdd42732c7ad41a235e766c64d185,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1152,8 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throttle: 0
   maxDist: 0.371
-  verticalScreenHeight: 0.5
-  lerpFactor: 15
+  lerpFactor: 16
   ticks: 8
 --- !u!136 &1548304098
 CapsuleCollider:
