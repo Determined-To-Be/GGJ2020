@@ -116,7 +116,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_4579B8CB: 1
-    - Boolean_4D2F3255: 1
+    - Boolean_4D2F3255: 0
     - Vector1_299FA269: 0
     - Vector1_48EF1BA8: 15
     - Vector1_666B12A9: 0.1
@@ -235,7 +235,7 @@ Material:
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
-    - _TurnOnProgress: 0.01
+    - _TurnOnProgress: 1
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
