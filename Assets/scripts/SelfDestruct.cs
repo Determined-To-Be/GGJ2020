@@ -22,7 +22,7 @@ public class SelfDestruct : MonoBehaviour
         }
 
     }
-    void InitiateSD()
+    public void InitiateSD()
     {
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
         //foreach (NavMeshAgent a in FindObjectsOfType<NavMeshAgent>())
