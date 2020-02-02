@@ -12,7 +12,7 @@ public class Throttle : PanelObject
     public float lerpFactor = 15;
     Vector3 center;
 
-    UnityEvent OnThrottleChange = new UnityEvent();
+    public UnityEvent OnThrottleChange = new UnityEvent();
 
     public void Start(){
         center = this.transform.position;
@@ -25,6 +25,7 @@ public class Throttle : PanelObject
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
+        OnThrottleChange.Invoke();
 
     }
 
