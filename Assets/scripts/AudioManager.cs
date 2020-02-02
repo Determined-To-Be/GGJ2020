@@ -59,12 +59,13 @@ public class AudioManager : MonoBehaviour
         else if (_Instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
-
-        mixer = Resources.Load("Master") as AudioMixer;
+        
+        mixer = Resources.Load<AudioMixer>("Master");
         channels = new AudioSource[System.Enum.GetNames(typeof(Channel)).Length];
         channelNames = Channel.GetNames(typeof(Channel));
         for (int chan = 0; chan < channels.Length; chan++)
         {
+            channels[chan] = gameObject.AddComponent<AudioSource>();
             channels[chan].outputAudioMixerGroup = mixer.FindMatchingGroups(channelNames[chan])[0];
         }
     }

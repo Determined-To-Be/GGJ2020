@@ -10,12 +10,16 @@ public class Throttle : PanelObject
     public float maxDist = 1;
     public float verticalScreenHeight = .15f;
     public float lerpFactor = 15;
+    public int ticks = 8;
     Vector3 center;
+    AudioClip down, up;
 
-    public UnityEvent OnThrottleChange = new UnityEvent();
+    UnityEvent OnThrottleChange = new UnityEvent();
 
     public void Start(){
         center = this.transform.position;
+        down = AudioManager.Instance.GetSample("player_button_push");
+        up = AudioManager.Instance.GetSample("player_button_release");
     }
 
     public override void OnHold(){
@@ -25,13 +29,12 @@ public class Throttle : PanelObject
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
-        OnThrottleChange.Invoke();
-
     }
 
     Vector2 initMousePos;
     public override void OnDown(){
         initMousePos = Input.mousePosition;
+        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, down);
     }
 
     IEnumerator springBack(){
@@ -39,6 +42,7 @@ public class Throttle : PanelObject
     }
 
     public override void OnUp(){
+        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, up);
     }
 
 }

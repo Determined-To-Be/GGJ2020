@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SonarBurst : MonoBehaviour
 {
+    public ParticleSystem ps;
+    public Transform arrow;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class SonarBurst : MonoBehaviour
     }
     public void triggerBurst()
     {
-        
+        ps.Emit(1);
+        arrow.LookAt(GameObject.FindGameObjectWithTag("part").transform);
     }
 }
