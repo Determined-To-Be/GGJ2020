@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PartCollector : MonoBehaviour
 {
-    public bool partsCollected;
+    public static int partsCollected = 0;
     public GameObject partSprite;
     public GameObject partPrefab;
+    public bool carryPart = false;
       // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +22,24 @@ public class PartCollector : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D other)
     {
         print(other.gameObject.name);
-        if (!partsCollected&&other.CompareTag("part"))
+        if (!carryPart&&other.CompareTag("part"))
         {
             partSprite.active = true;
             Destroy(other.gameObject);
-            partsCollected = true;
+            carryPart = true;
         }
         if (other.CompareTag("home"))
         {
             partSprite.active = false;
-            partsCollected = false;
+            partsCollected++;
+            carryPart = false;
             //transition to next level
         }
     }
     private void OnDestroy()
     {
 
-        if (partsCollected)
+        if (carryPart)
         {
             Instantiate(partPrefab,partSprite.transform.position,Quaternion.identity);
         }
