@@ -18,6 +18,7 @@ public class Throttle : PanelObject
         down = AudioManager.Instance.GetSample("player_button_push");
         up = AudioManager.Instance.GetSample("player_button_release");
         move = AudioManager.Instance.GetSample("friendly_move");
+        this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
     }
 
     public override void OnHold(){
@@ -27,7 +28,7 @@ public class Throttle : PanelObject
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
-        OnThrottleChange.Invoke((_throttle + 1 / 2));
+        OnThrottleChange.Invoke(_throttle * _throttle * _throttle);
     }
 
     Vector2 initMousePos;
@@ -37,13 +38,14 @@ public class Throttle : PanelObject
         AudioManager.Instance.StartSound(AudioManager.Channel.friendly, move);
     }
 
+    public float returnBackSpeed = 1;
     IEnumerator returnCenter(){
         //TODO springback
         throttle = -1;
         while(Mathf.Abs(throttle - _throttle) > .01f){
-            _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
+            _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * returnBackSpeed);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  -_throttle * maxDist);
-            
+            OnThrottleChange.Invoke(_throttle);
             yield return null;
         }
         print("centered");
@@ -53,7 +55,7 @@ public class Throttle : PanelObject
     public override void OnUp(){
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, up);
         AudioManager.Instance.StopSound(AudioManager.Channel.friendly);
-        StartCoroutine(returnCenter());
+        //StartCoroutine(returnCenter());
     }
 
 }
