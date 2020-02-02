@@ -6,6 +6,7 @@ public class PartCollector : MonoBehaviour
 {
     public bool partsCollected;
     public GameObject partSprite;
+    public GameObject partPrefab;
       // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,14 @@ public class PartCollector : MonoBehaviour
             partSprite.active = false;
             partsCollected = false;
             //transition to next level
+        }
+    }
+    private void OnDestroy()
+    {
+
+        if (partsCollected)
+        {
+            Instantiate(partPrefab,partSprite.transform.position,Quaternion.identity);
         }
     }
 }

@@ -12,7 +12,7 @@ public class SonarBurst : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sp = arrow.gameObject.GetComponent<SpriteRenderer>();
+        sp = arrow.gameObject.GetComponentInChildren<SpriteRenderer>();
         part = GameObject.FindGameObjectWithTag("part");
     }
 
@@ -26,11 +26,22 @@ public class SonarBurst : MonoBehaviour
     }
     public void triggerBurst()
     {
-        ps.Emit(1);
+        ps.Emit(3);
         sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 1);
         arrow.LookAt(part.transform);
-        Vector3 arrowDir = transform.position - part.transform.position;
-        arrow.position = arrowDir.normalized * arrowDist;
+        Vector3 arrowDir = part.transform.position-transform.position;
+        arrow.position = transform.position+arrowDir.normalized*arrowDist ;
         arrow.LookAt(part.transform);
+        StopAllCoroutines();
+        StartCoroutine(fade());
     }
+    private IEnumerator fade()
+    {
+        while (sp.color.a > 0)
+        {
+            sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, Mathf.Clamp01(sp.color.a-0.05f));
+            yield return new WaitForSeconds(1f / 20f);
+        }
+    }
+
 }
