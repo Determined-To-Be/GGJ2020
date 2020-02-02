@@ -24,14 +24,12 @@ public class Button : PanelObject
     }
 
     public override void OnDown(){
-        base.OnDown();
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
         onDown.Invoke();
         print("On Down");
     }
 
     public override void OnUp(){
-        base.OnUp();
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_release"), 1, 1 * pitchMod);
         onDown.Invoke();
         print("On Up");

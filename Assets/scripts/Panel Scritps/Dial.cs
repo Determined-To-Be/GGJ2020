@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dial : PanelObject
 {
@@ -17,11 +18,9 @@ public class Dial : PanelObject
     }
 
     public override void OnDown(){
-        base.OnDown();
     }
 
     public override void OnUp(){
-        base.OnUp();
     }
 
 }

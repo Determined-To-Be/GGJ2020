@@ -1,26 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PanelObject : MonoBehaviour
+public abstract class PanelObject : MonoBehaviour
 {
 
-    public bool holding = false;
-    
-    public void Update(){
-        if(holding)
-            OnHold();
+    public void Awake(){
+        this.transform.tag = "Interactable";
     }
 
-    public virtual void OnHold(){
-        
-    }
+    public abstract void OnHold();
 
-    public virtual void OnDown(){
-        holding = true;
-    }
+    public abstract void OnDown();
 
-    public virtual void OnUp(){
-        holding = false;
-    }
+    public abstract void OnUp();
 }
