@@ -1151,6 +1151,7 @@ MonoBehaviour:
   maxDist: 1
   verticalScreenHeight: 0.15
   lerpFactor: 15
+  ticks: 16
 --- !u!1 &1854073676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1351,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1988543764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1794786778587475979, guid: 8e6807a9952ee8e4985bcdde1380b68d,
+    type: 3}
+  m_PrefabInstance: {fileID: 464466014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1988543765
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988543764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.18
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1988543766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988543764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4d41fadb2a2c44ebfaea2513690895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDown:
+    m_PersistentCalls:
+      m_Calls: []
+  onUp:
+    m_PersistentCalls:
+      m_Calls: []
+  onHold:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2022846595
 GameObject:
   m_ObjectHideFlags: 0
