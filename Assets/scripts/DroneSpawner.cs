@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class SelfDestruct : MonoBehaviour
+public class DroneSpawner : MonoBehaviour
 {
+    public GameObject thePrefab;
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +15,11 @@ public class SelfDestruct : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("f") && isDead)
         {
-            Destroy(gameObject);
+            isDead = false;
+            Instantiate(thePrefab, transform.position, Quaternion.identity);
         }
-
-    }
-    private void OnDestroy()
-    {
-        FindObjectOfType<DroneSpawner>().isDead = true;
+         
     }
 }
