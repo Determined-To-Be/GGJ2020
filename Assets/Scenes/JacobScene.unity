@@ -726,6 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60832c6f22add0f4ca9c6206b5a33d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 0
   ticks: 16
   useLimits: 0
   minAngle: 0

@@ -14,8 +14,6 @@ public class Throttle : PanelObject
 
     UnityEvent OnThrottleChange = new UnityEvent();
 
-    
-
     public void Start(){
         center = this.transform.position;
     }
