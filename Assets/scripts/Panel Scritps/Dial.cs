@@ -10,6 +10,13 @@ public class Dial : PanelObject
     public bool useLimits = false;
     public float minAngle = 0, maxAngle = 0;
 
+    AudioClip clickSound;
+
+    void Start()
+    {
+        clickSound = AudioManager.Instance.GetSample("player_dial_click");
+    }
+
     float lastAngle = 0;
     public override void OnHold(){
         Vector3 rad = cam.WorldToScreenPoint(this.transform.position) - Input.mousePosition;
@@ -17,6 +24,9 @@ public class Dial : PanelObject
         float currAngle = ((Mathf.Atan2(rad.y, rad.x) * Mathf.Rad2Deg) + 180);
 
         angle += currAngle - lastAngle;
+
+        if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
+            AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
 
         if(useLimits){
             angle = Mathf.Clamp(angle, minAngle, maxAngle);
