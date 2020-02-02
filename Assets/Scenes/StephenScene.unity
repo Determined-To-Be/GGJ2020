@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throttle: 0
-  maxDist: 1
+  maxDist: 0.5
   verticalScreenHeight: 0.15
   lerpFactor: 15
   ticks: 16
@@ -1357,19 +1357,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 464466014}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1988543765
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988543764}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1988543766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,6 +1378,19 @@ MonoBehaviour:
   onHold:
     m_PersistentCalls:
       m_Calls: []
+--- !u!135 &1988543768
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988543764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.18
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2022846595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1405,7 @@ GameObject:
   - component: {fileID: 2022846597}
   - component: {fileID: 2022846600}
   - component: {fileID: 2022846601}
+  - component: {fileID: 2022846602}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1624,3 +1625,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a4df2571eddad4eaa569cb07fb8241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2022846602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022846595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2daa7341751894c8e8279a8ae5ceef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensityPos: 0.1
+  intensityRot: 5
+  speedPos: 0.2
+  speedRot: 0.2
