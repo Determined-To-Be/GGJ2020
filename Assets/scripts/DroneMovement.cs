@@ -44,11 +44,24 @@ public class DroneMovement : MonoBehaviour
         angularVelocity= Vector3.RotateTowards(angularVelocity, rotationInput, maxAngularAcceleration, 1);
         transform.up = angularVelocity;
     }
+
+    public void setAngle(float angle){
+        Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        rotationInput = dir;
+    }
+
+    public void setThrottle(float throttle){
+        this.throttle = throttle;
+    }
+
+
     void TestDroneInput()
     {
         throttle =  Input.GetAxisRaw("Vertical");
         rotationInput = Vector3.RotateTowards(transform.up, Input.GetAxisRaw("Horizontal")*transform.right, 0.1f, 0);
     }
+
+
     public void SetRotationInput(Vector2 newRot)
     {
         rotationInput = newRot;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1209700621164459580}
   - component: {fileID: 1209700621164459581}
   m_Layer: 0
-  m_Name: Pirate
+  m_Name: CPirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e8e80b208b189e4391bb0737744f2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   nav: {fileID: 1209700621164459581}
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 5480770482385507180, guid: adc68f449a58ccf46b8c2e1106a488f8,
+    type: 3}
   aggro: 0
   waypoints:
   - {fileID: 0}
