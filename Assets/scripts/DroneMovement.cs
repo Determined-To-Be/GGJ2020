@@ -20,6 +20,11 @@ public class DroneMovement : MonoBehaviour
     float drag;
     Vector2 velocity;
     Vector2 angularVelocity;
+    bool boostMode = false;
+    public float boostAccelAngle;
+    public float boostSpeed;
+    public float boostAccel;
+    public SpriteRenderer boostRenderer;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,18 +35,26 @@ public class DroneMovement : MonoBehaviour
 
         if (testMovement)
             TestDroneInput();
-        
-        Vector3 desiredVelocity = throttle*transform.up * maxSpeed;
-
+        Vector3 desiredVelocity;
+        if (!boostMode)
+             desiredVelocity = throttle*transform.up * maxSpeed;
+        else
+            desiredVelocity = (throttle+boostSpeed) * transform.up * maxSpeed;
         float maxSpeedChange = maxAcceleration * Time.deltaTime;
-        velocity.x =
-            Mathf.MoveTowards(rb.velocity.x, desiredVelocity.x, maxSpeedChange);
-        velocity.y =
-            Mathf.MoveTowards(rb.velocity.y, desiredVelocity.y, maxSpeedChange);
-        if (0 == throttle)
+        
+            velocity.x =
+                Mathf.MoveTowards(rb.velocity.x, desiredVelocity.x, boostMode ? boostAccel*Time.deltaTime : maxSpeedChange);
+            velocity.y =
+                Mathf.MoveTowards(rb.velocity.y, desiredVelocity.y, boostMode ? boostAccel*Time.deltaTime : maxSpeedChange);
+        
+        if (0 == throttle&&!boostMode)
             velocity *= drag;
+        
         rb.velocity = velocity;
-        angularVelocity= Vector3.RotateTowards(angularVelocity, rotationInput, maxAngularAcceleration, 1);
+        if(!boostMode)
+            angularVelocity= Vector3.RotateTowards(angularVelocity, rotationInput, maxAngularAcceleration, 1);
+        else
+            angularVelocity = Vector3.RotateTowards(angularVelocity, rotationInput, boostAccelAngle, 1);
         transform.up = angularVelocity;
     }
 
@@ -60,8 +73,16 @@ public class DroneMovement : MonoBehaviour
     {
         throttle =  Input.GetAxisRaw("Vertical");
         rotationInput = Vector3.RotateTowards(transform.up, Input.GetAxisRaw("Horizontal")*transform.right, 0.1f, 0);
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ToggleBoostMode();
+        }
     }
-
+    public void ToggleBoostMode()
+    {
+        boostMode = !boostMode;
+        boostRenderer.enabled = boostMode;
+    }
 
     public void SetRotationInput(Vector2 newRot)
     {
