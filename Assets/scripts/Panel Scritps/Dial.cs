@@ -25,9 +25,9 @@ public class Dial : PanelObject
     public override void OnHold(){
         Vector3 rad = cam.WorldToScreenPoint(this.transform.position) - Input.mousePosition;
 
-        float currAngle = ((Mathf.Atan2(rad.y, rad.x) * Mathf.Rad2Deg) + 180);
+        float currAngle = ((Mathf.Atan2(rad.y, rad.x) * Mathf.Rad2Deg) + 180) * speed;
 
-        angle += (currAngle - lastAngle) * speed;
+        angle += (currAngle - lastAngle);
 
         // if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
         //     AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
