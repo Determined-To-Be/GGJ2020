@@ -61,8 +61,7 @@ public class DroneMovement : MonoBehaviour
     }
 
     public void setAngle(float angle){
-        angle = angle * Mathf.Deg2Rad;
-        Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        Vector2 dir =  (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.right);
         rotationInput = dir;
     }
 

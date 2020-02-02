@@ -10,6 +10,7 @@ public class Dial : PanelObject
     public int ticks = 16;
     public bool useLimits = false;
     public float minAngle = 0, maxAngle = 0;
+    public Vector3 centerOffset = Vector3.zero;
 
     AudioClip /*down, up,*/ move;
     public PanelEvent onDialChange = new PanelEvent();
@@ -21,13 +22,10 @@ public class Dial : PanelObject
         move = AudioManager.Instance.GetSample("friendly_move");
     }
 
-    float lastAngle = 0;
+    Vector3 last = Vector3.zero;
     public override void OnHold(){
-        Vector3 rad = cam.WorldToScreenPoint(this.transform.position) - Input.mousePosition;
-
-        float currAngle = ((Mathf.Atan2(rad.y, rad.x) * Mathf.Rad2Deg) + 180) * speed;
-
-        angle += (currAngle - lastAngle);
+        Vector3 rad = ((cam.WorldToScreenPoint(this.transform.position) + centerOffset) - Input.mousePosition) * speed;
+        angle += (Vector3.SignedAngle(rad, last, transform.up)) * speed;
 
         // if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
         //     AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
@@ -37,11 +35,13 @@ public class Dial : PanelObject
         }
 
         this.transform.localRotation = Quaternion.Euler(this.transform.localRotation.x, angle, this.transform.localRotation.z); 
-        lastAngle = currAngle;
-        onDialChange.Invoke(angle);
+        last = rad;
+        onDialChange.Invoke(-angle);
     }
 
     public override void OnDown(){
+        Vector3 rad = ((cam.WorldToScreenPoint(this.transform.position) + centerOffset) - Input.mousePosition) * speed;
+        last = rad;
         // AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, down);
         AudioManager.Instance.StartSound(AudioManager.Channel.friendly, move);
     }
