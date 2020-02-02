@@ -6,12 +6,13 @@ using UnityEngine.Events;
 public class Dial : PanelObject
 {
     public float angle = 0;
+    public float speed = 1;
     public int ticks = 16;
     public bool useLimits = false;
     public float minAngle = 0, maxAngle = 0;
 
     AudioClip /*down, up,*/ move;
-    PanelEvent onDialChange = new PanelEvent();
+    public PanelEvent onDialChange = new PanelEvent();
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class Dial : PanelObject
 
         float currAngle = ((Mathf.Atan2(rad.y, rad.x) * Mathf.Rad2Deg) + 180);
 
-        angle += currAngle - lastAngle;
+        angle += (currAngle - lastAngle) * speed;
 
         // if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
         //     AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
@@ -51,7 +52,10 @@ public class Dial : PanelObject
     
     }
 
-    void OnDrawGizmos(){
+    //Source
+    //https://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain/1082938
+    int mod(int x, int m) {
+        int r = x%m;
+        return r<0 ? r+m : r;
     }
-
 }

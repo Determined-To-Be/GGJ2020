@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Button : PanelObject
 {
     
+    public Vector3 motionDirection;
+
     private float pitchMod;
     public float pushDepth = -1;
     public Vector3 initPos;
@@ -32,7 +34,7 @@ public class Button : PanelObject
     }
 
     public override void OnDown(){
-        goalPos = initPos + new Vector3(0, pushDepth, 0);
+        goalPos = initPos + motionDirection * pushDepth;
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
         onDown.Invoke();
     }
