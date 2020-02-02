@@ -6,10 +6,14 @@ public class SonarBurst : MonoBehaviour
 {
     public ParticleSystem ps;
     public Transform arrow;
+    public float arrowDist;
+    SpriteRenderer sp;
+    GameObject part;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sp = arrow.gameObject.GetComponent<SpriteRenderer>();
+        part = GameObject.FindGameObjectWithTag("part");
     }
 
     // Update is called once per frame
@@ -23,6 +27,10 @@ public class SonarBurst : MonoBehaviour
     public void triggerBurst()
     {
         ps.Emit(1);
-        arrow.LookAt(GameObject.FindGameObjectWithTag("part").transform);
+        sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 1);
+        arrow.LookAt(part.transform);
+        Vector3 arrowDir = transform.position - part.transform.position;
+        arrow.position = arrowDir.normalized * arrowDist;
+        arrow.LookAt(part.transform);
     }
 }
