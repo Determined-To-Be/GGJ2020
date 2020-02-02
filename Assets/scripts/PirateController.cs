@@ -14,6 +14,10 @@ public class PirateController : MonoBehaviour
     private float dist;
     public float aggroRange;
     DroneSpawner ds;
+    public float waitTime = 4.0f;
+    public float time = 0.0f;
+    public bool isInvis = false;
+    public bool isCooldown = true;
     private void Start()
     {
         ds = FindObjectOfType<DroneSpawner>();
@@ -46,7 +50,11 @@ public class PirateController : MonoBehaviour
         {
             Patrol();
         }
-
+        if (Input.GetKeyDown("i"))
+        {
+            Invisib();
+        }
+        
     }
 
     void AggroCheck()
@@ -55,7 +63,7 @@ public class PirateController : MonoBehaviour
         {
             dist = Vector3.Distance(playerPos.position, transform.position);
             // finding position between player position and enemy position
-            if (dist < aggroRange)
+            if (dist < aggroRange && !isInvis)
             {
                 aggro = true;
             }
@@ -92,5 +100,24 @@ public class PirateController : MonoBehaviour
             // if distance between player and enemey is small
             // enemy will continue to go back and forth between waypoints
         }
+    }
+    void Invisib()
+    {
+        if (!isCooldown)
+        {
+            return;
+        }
+        isInvis = true;
+            aggro = false;
+        StopAllCoroutines();
+        StartCoroutine(Countdown());
+        isCooldown = false;
+    }
+    IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(4);
+        isInvis = false;
+        yield return new WaitForSeconds(4);
+        isCooldown = true;
     }
 }

@@ -139,6 +139,12 @@ MonoBehaviour:
   maxAngularSpeed: 0.06
   maxAngularAcceleration: 0.06
   drag: 0.95
+  boostAccelAngle: 0
+  boostSpeed: 0
+  boostAccel: 0
+  boostRenderer: {fileID: 0}
+  invisBody: {fileID: 5480770482234576819}
+  isCooldown: 1
 --- !u!50 &5480770482385507186
 Rigidbody2D:
   serializedVersion: 4

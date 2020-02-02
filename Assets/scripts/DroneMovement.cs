@@ -25,6 +25,8 @@ public class DroneMovement : MonoBehaviour
     public float boostSpeed;
     public float boostAccel;
     public SpriteRenderer boostRenderer;
+    public SpriteRenderer invisBody;
+    public bool isCooldown = true;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,6 +79,12 @@ public class DroneMovement : MonoBehaviour
         {
             ToggleBoostMode();
         }
+        if (Input.GetKeyDown(KeyCode.I) && isCooldown)
+        {
+            isCooldown = false;
+            StopAllCoroutines();
+            StartCoroutine(PlayerCountdown());
+        }
     }
     public void ToggleBoostMode()
     {
@@ -87,5 +95,21 @@ public class DroneMovement : MonoBehaviour
     public void SetRotationInput(Vector2 newRot)
     {
         rotationInput = newRot;
+    }
+    public void InvisbleMode()
+    {
+        
+        invisBody.enabled = !invisBody.enabled;
+        // will make invisBody the opposite of what is was
+      
+        
+    }
+    IEnumerator PlayerCountdown()
+    {
+        InvisbleMode();
+        yield return new WaitForSeconds(4);
+        InvisbleMode();
+        yield return new WaitForSeconds(4);
+        isCooldown = true;
     }
 }
