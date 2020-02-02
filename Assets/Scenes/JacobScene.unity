@@ -70499,7 +70499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &967764440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70512,6 +70512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921b1fac214e630458432421dc524954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 0
+  explosionEffect: {fileID: 0}
 --- !u!195 &967764441
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -74337,6 +74339,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  returnBackSpeed: 1
 --- !u!135 &1632897642
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -75059,12 +75062,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1745157060}
   - component: {fileID: 1745157059}
-  - component: {fileID: 1745157058}
   - component: {fileID: 1745157057}
   - component: {fileID: 1745157056}
   - component: {fileID: 1745157055}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: 2D Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75220,14 +75222,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1745157058
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745157054}
-  m_Enabled: 1
 --- !u!20 &1745157059
 Camera:
   m_ObjectHideFlags: 0
@@ -75640,6 +75634,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 329412822}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1902630556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -261929101633876147, guid: c8345c9313642ee449acf6b315937d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 357137171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1902630560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902630556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72da306a6b8cb434894d215e1444b695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 0
+  speed: 0.25
+  ticks: 16
+  useLimits: 0
+  minAngle: 0
+  maxAngle: 0
+  onDialChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1434161289}
+        m_MethodName: setAngle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!135 &1902630561
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902630556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Center: {x: 0, y: 0.038326867, z: 0.00000010430813}
 --- !u!1001 &1909286824
 PrefabInstance:
   m_ObjectHideFlags: 0
