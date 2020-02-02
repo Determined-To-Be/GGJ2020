@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class SelfDestruct : MonoBehaviour
 {
+    public float radius;
+    public GameObject explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,22 @@ public class SelfDestruct : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Destroy(gameObject);
+            InitiateSD();
         }
 
+    }
+    void InitiateSD()
+    {
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        foreach (NavMeshAgent a in FindObjectsOfType<NavMeshAgent>())
+        {
+            if (Vector3.Distance(transform.position, a.transform.position) < radius)
+            {
+                
+                Destroy(a.gameObject);
+            }
+        }
+        Destroy(gameObject);
     }
     private void OnDestroy()
     {
