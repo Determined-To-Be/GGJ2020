@@ -13,9 +13,10 @@ public class PirateController : MonoBehaviour
     private int currWaypoint;
     private float dist;
     public float aggroRange;
-
+    DroneSpawner ds;
     private void Start()
     {
+        ds = FindObjectOfType<DroneSpawner>();
         nav.speed = speed;
         // setting speed of enemy
         nav = GetComponent<NavMeshAgent>();
@@ -35,28 +36,61 @@ public class PirateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!aggro && nav.remainingDistance < 0.5f)
+        AggroCheck();
+
+        if (aggro)
+        {
+            AggroBehav();
+        }
+        else
+        {
+            Patrol();
+        }
+
+    }
+
+    void AggroCheck()
+    {
+        if (playerPos)
+        {
+            dist = Vector3.Distance(playerPos.position, transform.position);
+            // finding position between player position and enemy position
+            if (dist < aggroRange)
+            {
+                aggro = true;
+            }
+            else
+                aggro = false;
+        }
+        else
+        {
+            if (!ds.isDead)
+            {
+                playerPos = FindObjectOfType<DroneMovement>().transform;
+            }
+        }
+    }
+    void AggroBehav()
+    {
+        if (playerPos)
+        {
+            nav.destination = playerPos.position;
+            //if enemy knows where player already is
+            //enemy will go to player's position   
+        }
+
+        else
+        {
+            aggro = false;
+        }
+    }
+    void Patrol()
+    {
+        if (nav.remainingDistance < 0.5f)
         {
             GotoNextPoint();
             // if distance between player and enemey is small
             // enemy will continue to go back and forth between waypoints
         }
-        if (aggro)
-        {
-            nav.destination = playerPos.position;
-            //if enemy knows where player already is
-            //enemy will go to player's position
-        }
-
-        dist = Vector3.Distance(playerPos.position, transform.position);
-        // finding position between player position and enemy position
-        
-        if (dist < aggroRange)
-        {
-            aggro = true;
-        }
-        else
-            aggro = false; 
     }
-
 }
