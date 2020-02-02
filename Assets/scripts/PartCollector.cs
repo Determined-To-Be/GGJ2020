@@ -17,24 +17,9 @@ public class PartCollector : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
     {
-        print(collision.collider.name);
-        if ((!partsCollected) && collision.collider.CompareTag("part"))
-        {
-            partSprite.active = true;
-            Destroy(collision.collider.gameObject);
-            partsCollected = true;
-        }
-        if (collision.collider.CompareTag("home"))
-        {
-            partSprite.active = false;
-            partsCollected = false;
-            //transition to n
-        }
-    }
-        private void OnTriggerEnter(Collider other)
-    {
+        print(other.gameObject.name);
         if (!partsCollected&&other.CompareTag("part"))
         {
             partSprite.active = true;
