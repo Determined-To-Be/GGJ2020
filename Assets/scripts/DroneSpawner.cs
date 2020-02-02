@@ -18,7 +18,7 @@ public class DroneSpawner : MonoBehaviour
         if (Input.GetKeyDown("f") && isDead)
         {
             isDead = false;
-            Instantiate(thePrefab, transform.position, Quaternion.identity);
+            FindObjectOfType<CameraFollow>().target=Instantiate(thePrefab, transform.position, Quaternion.identity).transform;
         }
          
     }
