@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throttle: 0
-  maxDist: 0.5
+  maxDist: 0.4
   verticalScreenHeight: 0.15
   lerpFactor: 15
   ticks: 16
@@ -1369,6 +1369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4d41fadb2a2c44ebfaea2513690895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushDepth: -0.1
+  initPos: {x: 0, y: 0, z: 0}
+  lerpStrength: 15
   onDown:
     m_PersistentCalls:
       m_Calls: []
