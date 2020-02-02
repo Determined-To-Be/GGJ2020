@@ -23,11 +23,11 @@ public class Throttle : PanelObject
     public override void OnHold(){
         print((Input.mousePosition.y - initMousePos.y)/cam.pixelHeight);
         throttle += (Input.mousePosition.y - cam.WorldToScreenPoint(this.transform.position).y)/cam.pixelHeight;
-        throttle = Mathf.Clamp(throttle, 0, 1); 
+        throttle = Mathf.Clamp(throttle, -1, 1); 
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
-        OnThrottleChange.Invoke(_throttle);
+        OnThrottleChange.Invoke((_throttle + 1 / 2));
     }
 
     Vector2 initMousePos;
@@ -39,7 +39,7 @@ public class Throttle : PanelObject
 
     IEnumerator returnCenter(){
         //TODO springback
-        throttle = 0;
+        throttle = -1;
         while(Mathf.Abs(throttle - _throttle) > .01f){
             _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  -_throttle * maxDist);
