@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/2DAddons.meta
+guid: 349cce07f1b1a624c887c9d1901c96a9
+folderAsset: yes
+=======
 guid: f03de2995917cc0459f47c8fcc563025
+>>>>>>> 9ff4dfdc12c5f6d0da465ed069635219e67daec7:Assets/Scenes/Level01.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
