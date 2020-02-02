@@ -7,9 +7,19 @@ public class Button : PanelObject
 {
     
     private float pitchMod;
+    public float pushDepth = -1;
+    public Vector3 initPos;
+    public float lerpStrength = 15;
 
     public void Start(){
+        initPos = this.transform.localPosition;
         pitchMod = Random.Range(.5f, 1);
+        goalPos = initPos;
+    }
+
+    Vector3 goalPos;
+    void Update(){
+        this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, goalPos, lerpStrength * Time.deltaTime);
     }
 
     [SerializeField]
@@ -19,19 +29,17 @@ public class Button : PanelObject
 
     public override void OnHold(){
         onHold.Invoke();
-
-        print("On Hold");
     }
 
     public override void OnDown(){
+        goalPos = initPos + new Vector3(0, pushDepth, 0);
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
         onDown.Invoke();
-        print("On Down");
     }
 
     public override void OnUp(){
+        goalPos = initPos;
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_release"), 1, 1 * pitchMod);
-        onDown.Invoke();
-        print("On Up");
+        onUp.Invoke();
     }
 }

@@ -30,6 +30,7 @@ public class Throttle : PanelObject
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
         this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y,  Mathf.Clamp(-_throttle * maxDist, -maxDist, maxDist));
+        OnThrottleChange.Invoke();
     }
 
     Vector2 initMousePos;
