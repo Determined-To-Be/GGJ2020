@@ -8,7 +8,6 @@ public class Throttle : PanelObject
     public float throttle;
     float _throttle;
     public float maxDist = 1;
-    public float verticalScreenHeight = .15f;
     public float lerpFactor = 15;
     public int ticks = 8;
     Vector3 center;
@@ -25,7 +24,7 @@ public class Throttle : PanelObject
 
     public override void OnHold(){
         
-        throttle = (Input.mousePosition.y - initMousePos.y)/cam.scaledPixelHeight / verticalScreenHeight;
+        throttle += (Input.mousePosition.y - cam.WorldToScreenPoint(this.transform.position).y)/cam.pixelHeight;
         throttle = Mathf.Clamp(throttle, -1, 1); 
         _throttle = Mathf.Lerp(_throttle, throttle, Time.deltaTime * lerpFactor);
 
@@ -41,6 +40,7 @@ public class Throttle : PanelObject
     }
 
     IEnumerator springBack(){
+        //TODO springback
         yield return null;
     }
 
