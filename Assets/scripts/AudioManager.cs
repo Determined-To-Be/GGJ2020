@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         // start bg track
         int chin = (int) Channel.background;
         channels[chin].loop = true;
-        PlaySound(Channel.background, GetSample(channelNames[chin]));
+        PlaySound(Channel.background, GetSample("background_test"));
         StartCoroutine(PlayAmbient()); // start random sfx
 
         // // sample event
