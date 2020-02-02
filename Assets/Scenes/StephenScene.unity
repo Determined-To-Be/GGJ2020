@@ -1638,6 +1638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensityPos: 0.1
-  intensityRot: 5
-  speedPos: 0.2
-  speedRot: 0.2
+  intensityRot: 3
+  speedPos: 0.15
+  speedRot: 0.05

@@ -10,11 +10,15 @@ public class Dial : PanelObject
     public bool useLimits = false;
     public float minAngle = 0, maxAngle = 0;
 
-    AudioClip clickSound;
+    // AudioClip clickSound;
+    AudioClip down, up, move;
 
     void Start()
     {
-        clickSound = AudioManager.Instance.GetSample("player_dial_click");
+        // clickSound = AudioManager.Instance.GetSample("player_dial_click");
+        down = AudioManager.Instance.GetSample("player_button_push");
+        up = AudioManager.Instance.GetSample("player_button_release");
+        move = AudioManager.Instance.GetSample("friendly_move");
     }
 
     float lastAngle = 0;
@@ -25,8 +29,8 @@ public class Dial : PanelObject
 
         angle += currAngle - lastAngle;
 
-        if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
-            AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
+        // if (Mathf.FloorToInt(angle) % (360 / ticks) == 0)
+        //     AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, clickSound);
 
         if(useLimits){
             angle = Mathf.Clamp(angle, minAngle, maxAngle);
@@ -37,9 +41,13 @@ public class Dial : PanelObject
     }
 
     public override void OnDown(){
+        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, down);
+        AudioManager.Instance.StartSound(AudioManager.Channel.friendly, move);
     }
 
     public override void OnUp(){
+        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, up);
+        AudioManager.Instance.StopSound(AudioManager.Channel.friendly);
     
     }
 

@@ -10,13 +10,13 @@ public class AudioManager : MonoBehaviour
 
     #pragma warning disable 0649
     [SerializeField] float variety, ambientPassiveMaxWait, ambientPassiveMinWait;
-    [SerializeField] AudioClip[] samples; // naming: channelName##.wav
     #pragma warning restore 0649
     
     string[] channelNames;
 
     AudioSource[] channels;
     AudioMixer mixer;
+    AudioClip[] samples; // naming: channelName_sample_name.wav
 
     // UnityEvent playTestSample = new UnityEvent();
 
@@ -60,7 +60,8 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
         
-        mixer = Resources.Load<AudioMixer>("Master");
+        mixer = Resources.Load<AudioMixer>("Sounds/Master");
+        samples = Resources.LoadAll<AudioClip>("Sounds");
         channels = new AudioSource[System.Enum.GetNames(typeof(Channel)).Length];
         channelNames = Channel.GetNames(typeof(Channel));
         for (int chan = 0; chan < channels.Length; chan++)
@@ -96,6 +97,30 @@ public class AudioManager : MonoBehaviour
         channels[chin].clip = smpl;
         channels[chin].Play();
         yield return new WaitWhile(() => channels[chin].isPlaying);
+    }
+
+    public void StartSound(Channel chan, AudioClip smpl, float vol = 1f, float pitch = 1f)
+    {
+        int chin = (int) chan;
+        ToggleLoop(chan);
+        channels[chin].volume = vol;
+        channels[chin].pitch = pitch;
+        channels[chin].clip = smpl;
+        channels[chin].Play();
+
+    }
+
+    public void ToggleLoop(Channel chan)
+    {
+        int chin = (int) chan;
+        channels[chin].loop = !channels[chin].loop;
+    }
+    
+    public void StopSound(Channel chan)
+    {
+        channels[(int) chan].Stop();
+        ToggleLoop(chan);
+
     }
 
     public bool IsPlaying(Channel chan)
