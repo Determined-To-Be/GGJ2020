@@ -115,12 +115,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_449BE3C0: 1
+    - Boolean_449BE3C0: 0
     - Boolean_4579B8CB: 1
     - Boolean_4D2F3255: 1
     - Vector1_299FA269: 0
     - Vector1_48EF1BA8: 15
     - Vector1_666B12A9: 0.1
+    - Vector1_691EC93: 1
     - Vector1_9164F5BC: 2
     - Vector1_C41B98D: 0.1
     - Vector1_DBF3BD02: 0.1
@@ -213,6 +214,7 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
     - _SrcBlend: 1
+    - _Static: 0
     - _StencilRef: 2
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 64
@@ -236,6 +238,7 @@ Material:
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
+    - _TurnOn: 1
     - _TurnOnProgress: 1
     - _UVBase: 0
     - _UVDetail: 0

@@ -40,7 +40,7 @@ public class ToggleButton : PanelObject
             goalRot = Quaternion.Euler(rotationVector.x * rotationLimits.y, rotationVector.y * rotationLimits.y, rotationVector.z * rotationLimits.y);
             onToggleDown.Invoke();
         }
-        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
+        AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_release"), 1, 1 * pitchMod);
     }
 
     public override void OnUp(){

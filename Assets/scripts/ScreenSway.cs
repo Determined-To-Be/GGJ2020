@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ScreenSway : MonoBehaviour
 {
+    #pragma warning disable 0649
     [SerializeField] float intensityPos, intensityRot, speedPos, speedRot;
+    #pragma warning restore 0649
 
     Vector3 initPos;
     Quaternion initRot;
@@ -19,8 +21,8 @@ public class ScreenSway : MonoBehaviour
     {
         initPos = this.transform.position;
         initRot = this.transform.rotation;
-        seed = Random.seed;
-        seed2 = seed++;
+        seed = Random.Range(int.MinValue, int.MaxValue);
+        seed2 = seed >= int.MaxValue ? int.MinValue : seed++;
     }
 
     void Update()

@@ -18,8 +18,6 @@ public class AudioManager : MonoBehaviour
     AudioMixer mixer;
     AudioClip[] samples; // naming: channelName_sample_name.wav
 
-    // UnityEvent playTestSample = new UnityEvent();
-
     static AudioManager _Instance;
     public static AudioManager Instance
     {
@@ -43,13 +41,6 @@ public class AudioManager : MonoBehaviour
         channels[chin].loop = true;
         PlaySound(Channel.background, GetSample("background"));
         StartCoroutine(PlayAmbient()); // start random sfx
-
-        // // sample event
-        // if (playTestSample == null)
-        //     playTestSample = new UnityEvent();
-        // playTestSample.AddListener(PlayTestSample);
-        
-        // playTestSample.Invoke();
     }
 
     void Awake()
@@ -177,9 +168,4 @@ public class AudioManager : MonoBehaviour
             yield return new WaitWhile(() => chan.isPlaying);
         }
     }
-
-    // void PlayTestSample ()
-    // {
-    //     PlaySoundOnce(Channel.player, GetSample("player_button_push"));
-    // }
 }
