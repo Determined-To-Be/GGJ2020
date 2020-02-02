@@ -10,6 +10,7 @@ public class ToggleButton : PanelObject
 
     public Vector3 rotationVector;
     public Vector2 rotationLimits;
+    public float lerpStrength = 15;
 
     [SerializeField]
     UnityEvent  onToggleDown = new UnityEvent(),
@@ -19,6 +20,12 @@ public class ToggleButton : PanelObject
 
     public void Start(){
         pitchMod = Random.Range(.5f, 1);
+        goalRot = Quaternion.Euler(rotationVector.x * rotationLimits.x, rotationVector.y * rotationLimits.x, rotationVector.z * rotationLimits.x);
+    }
+    
+    Quaternion goalRot;
+    void Update(){
+        this.transform.localRotation = Quaternion.Slerp(this.transform.localRotation, goalRot, lerpStrength * Time.deltaTime);
     }
 
     public override void OnHold(){
@@ -27,12 +34,10 @@ public class ToggleButton : PanelObject
     public override void OnDown(){
         state = !state;
         if(state){
-            print(new Vector3(rotationVector.x * rotationLimits.x, rotationVector.y * rotationLimits.x, rotationVector.z * rotationLimits.x));
-            this.transform.localRotation = Quaternion.Euler(rotationVector.x * rotationLimits.x, rotationVector.y * rotationLimits.x, rotationVector.z * rotationLimits.x);
+            goalRot = Quaternion.Euler(rotationVector.x * rotationLimits.x, rotationVector.y * rotationLimits.x, rotationVector.z * rotationLimits.x);
             onToggleUp.Invoke();
         } else {
-            print(new Vector3(rotationVector.x * rotationLimits.y, rotationVector.y * rotationLimits.y, rotationVector.z * rotationLimits.y));
-            this.transform.localRotation = Quaternion.Euler(rotationVector.x * rotationLimits.y, rotationVector.y * rotationLimits.y, rotationVector.z * rotationLimits.y);
+            goalRot = Quaternion.Euler(rotationVector.x * rotationLimits.y, rotationVector.y * rotationLimits.y, rotationVector.z * rotationLimits.y);
             onToggleDown.Invoke();
         }
         AudioManager.Instance.PlaySoundOnce(AudioManager.Channel.player, AudioManager.Instance.GetSample("player_button_push"), 1, 1 * pitchMod);
