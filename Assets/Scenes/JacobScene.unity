@@ -695,6 +695,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1248704509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -261929101633876147, guid: c2dbdd42732c7ad41a235e766c64d185,
+    type: 3}
+  m_PrefabInstance: {fileID: 1345583703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1248704511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248704509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.18665327, z: 0.5199999}
+  m_Center: {x: 0, y: 0.038326636, z: 0.000000059604645}
+--- !u!114 &1248704514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248704509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60832c6f22add0f4ca9c6206b5a33d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticks: 16
+  useLimits: 0
+  minAngle: 0
+  maxAngle: 0
 --- !u!1001 &1345583703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -795,6 +830,7 @@ MonoBehaviour:
   throttle: 0
   maxDist: 0.371
   verticalScreenHeight: 0.5
+  lerpFactor: 15
 --- !u!136 &1548304098
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1270,7 +1306,7 @@ GameObject:
   - component: {fileID: 2022846601}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

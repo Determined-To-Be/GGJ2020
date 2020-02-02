@@ -14,11 +14,10 @@ public class Throttle : PanelObject
 
     UnityEvent OnThrottleChange = new UnityEvent();
 
-    Camera cam;
+    
 
     public void Start(){
         center = this.transform.position;
-        cam = Camera.main;
     }
 
     public override void OnHold(){

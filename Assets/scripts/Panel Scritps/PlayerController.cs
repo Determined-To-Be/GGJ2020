@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cam = this.gameObject.GetComponent<Camera>();
+        this.transform.tag = "MainCamera";
     }
 
     PanelObject po;
