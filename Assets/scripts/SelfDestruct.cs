@@ -25,14 +25,14 @@ public class SelfDestruct : MonoBehaviour
     void InitiateSD()
     {
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        foreach (NavMeshAgent a in FindObjectsOfType<NavMeshAgent>())
-        {
-            if (Vector3.Distance(transform.position, a.transform.position) < radius)
-            {
+        //foreach (NavMeshAgent a in FindObjectsOfType<NavMeshAgent>())
+        //{
+        //    if (Vector3.Distance(transform.position, a.transform.position) < radius)
+        //    {
                 
-                Destroy(a.gameObject);
-            }
-        }
+        //        Destroy(a.gameObject);
+        //    }
+        //}
         Destroy(gameObject);
     }
     private void OnDestroy()
