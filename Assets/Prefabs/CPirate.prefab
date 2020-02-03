@@ -56,6 +56,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   aggroRange: 3
+  waitTime: 4
+  time: 0
+  isInvis: 0
+  isCooldown: 1
 --- !u!50 &1209700621164459571
 Rigidbody2D:
   serializedVersion: 4
@@ -125,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209700621465681055}
   - component: {fileID: 1209700621465681054}
+  - component: {fileID: 5004645603676448648}
   m_Layer: 0
   m_Name: PirateSprite
   m_TagString: Untagged
@@ -185,7 +190,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 0981d0990d67c8147a9b385fab126fb6, type: 3}
   m_Color: {r: 1, g: 0, b: 0.27400684, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,3 +201,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5004645603676448648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209700621465681048}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99c8a73a0dd0dbb4385c4d6d6a7eca95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
