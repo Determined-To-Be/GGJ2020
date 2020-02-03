@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     Camera cam;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cam = this.gameObject.GetComponent<Camera>();
         this.transform.tag = "MainCamera";
