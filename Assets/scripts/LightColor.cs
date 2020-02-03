@@ -7,13 +7,18 @@ public class LightColor : MonoBehaviour
 
     public Color color;
     Material mat;
-    public Light light;
+    Light light;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        mat = this.GetComponent<Material>();
+        light = this.GetComponentInChildren<Light>();
+        mat = this.GetComponent<MeshRenderer>().material;
         light.color = color;
-        mat.SetColor("_EmissionColor", color); 
+        mat.EnableKeyword("_EmissiveIntensity");
+        mat.EnableKeyword("_EmissiveColor");
+
+        mat.SetColor("_EmissiveColor", color); 
+        mat.SetFloat("_EmissiveIntensity", color.a);
     }
 
     Color last = Color.white;
@@ -22,9 +27,17 @@ public class LightColor : MonoBehaviour
     {   
         if(color == last)
             return;
-
+        
+        mat.SetColor("_EmissiveColor", color);
+        mat.SetFloat("_EmissiveIntensity", color.a);
         light.color = color;
-        mat.SetColor("_EmissionColor", color);
+        light.intensity = color.a;
+        
+        
         last = color;
+    }
+
+    public void SetColor(Color color){
+        this.color = color;
     }
 }
