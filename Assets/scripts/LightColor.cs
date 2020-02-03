@@ -8,6 +8,8 @@ public class LightColor : MonoBehaviour
     public Color color;
     Material mat;
     Light light;
+
+    public Color active, inactive;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,6 +37,15 @@ public class LightColor : MonoBehaviour
         
         
         last = color;
+    }
+
+    public void activate(){
+        this.color = active;
+    }
+
+
+    public void deactivate(){
+        this.color = inactive;
     }
 
     public void SetColor(Color color){

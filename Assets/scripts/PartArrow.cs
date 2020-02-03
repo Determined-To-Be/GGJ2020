@@ -43,7 +43,6 @@ public class PartArrow : MonoBehaviour
         if (player)
         {
             var dir = (transform.position - player.position).normalized;
-            print(dir.z);
             var dist = Mathf.Clamp(Vector3.Distance(player.position, transform.position)/2, 0, maxRange);
             arrow.position = player.position + dir * dist;
             arrow.LookAt(player);
