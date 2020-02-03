@@ -11,7 +11,7 @@ public class LightColor : MonoBehaviour
 
     public Color active, inactive;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         light = this.GetComponentInChildren<Light>();
         mat = this.GetComponent<MeshRenderer>().material;
@@ -27,9 +27,7 @@ public class LightColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(color == last)
-            return;
-        
+       
         mat.SetColor("_EmissiveColor", color);
         mat.SetFloat("_EmissiveIntensity", color.a);
         light.color = color;
