@@ -27,4 +27,8 @@ public class LightColor : MonoBehaviour
         mat.SetColor("_EmissionColor", color);
         last = color;
     }
+
+    public void SetColor(Color color){
+        this.color = color;
+    }
 }
