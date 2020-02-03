@@ -69,8 +69,11 @@ public class LightControl : MonoBehaviour {
         }
 
         bulb.intensity += (BrightGoTo - bulb.intensity) * Time.deltaTime * flickerHardness;
+        
 
         if(jacobControl)
-            lightColor.SetColor(new Color(color.r, color.g, color.b, bulb.intensity));
-	}
+        {
+            lightColor.SetColor(new Color(color.r, color.g, color.b, bulb.intensity / startBright));
+        }
+    }
 }

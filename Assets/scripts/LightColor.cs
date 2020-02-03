@@ -19,8 +19,8 @@ public class LightColor : MonoBehaviour
         mat.EnableKeyword("_EmissiveIntensity");
         mat.EnableKeyword("_EmissiveColor");
 
-        mat.SetColor("_EmissiveColor", color); 
-        mat.SetFloat("_EmissiveIntensity", color.a);
+        mat.SetColor("Color_3641C126", color); 
+        mat.SetFloat("Vector1_A5D7DE2A", color.a * 50);
     }
 
     Color last = Color.clear;
@@ -28,8 +28,8 @@ public class LightColor : MonoBehaviour
     void Update()
     {   
        
-        mat.SetColor("_EmissiveColor", color);
-        mat.SetFloat("_EmissiveIntensity", color.a);
+        mat.SetColor("Color_3641C126", color);
+        mat.SetFloat("Vector1_A5D7DE2A", color.a * 50);
         light.color = color;
         light.intensity = color.a;
         
