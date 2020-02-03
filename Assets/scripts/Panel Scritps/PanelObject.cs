@@ -21,4 +21,7 @@ public abstract class PanelObject : MonoBehaviour
 }
 
 [System.Serializable]
-public class PanelEvent : UnityEvent <float> {}
+public class PanelEvent : UnityEvent <float> {
+
+    
+}

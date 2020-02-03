@@ -61,7 +61,7 @@ public class DroneMovement : MonoBehaviour
     }
 
     public void setAngle(float angle){
-        Vector2 dir =  (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.right);
+        Vector2 dir =  (Vector2)(Quaternion.Euler(0,0,angle + 90) * Vector2.right);
         rotationInput = dir;
     }
 
@@ -94,6 +94,14 @@ public class DroneMovement : MonoBehaviour
     public void SetRotationInput(Vector2 newRot)
     {
         rotationInput = newRot;
+    }
+
+    public void EnterInvis(){
+        if(!isCooldown)
+            return;
+        isCooldown = false;
+        StopAllCoroutines();
+        StartCoroutine(PlayerCountdown());
     }
     public void InvisbleMode()
     {

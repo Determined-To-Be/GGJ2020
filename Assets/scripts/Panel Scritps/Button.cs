@@ -25,7 +25,7 @@ public class Button : PanelObject
     }
 
     [SerializeField]
-    UnityEvent  onDown = new UnityEvent(),
+    public UnityEvent  onDown = new UnityEvent(),
                 onUp = new UnityEvent(),
                 onHold = new UnityEvent();
 

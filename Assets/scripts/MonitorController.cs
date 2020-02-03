@@ -52,12 +52,12 @@ public class MonitorController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(10f, 11f));
+            yield return new WaitForSeconds(Random.Range(15f, 120f));
             AudioManager.Instance.StartSound(AudioManager.Channel.ambientActive, noise);
             screen.SetInt("_Static", toggleStatic = 1);
-            yield return new WaitForSeconds(Random.Range(staticTime - 0.1f, staticTime));
-            AudioManager.Instance.StopSound(AudioManager.Channel.ambientActive);
+            yield return new WaitForSeconds(Random.Range(0.5f, staticTime));
             screen.SetInt("_Static", toggleStatic = 0);
+            AudioManager.Instance.StopSound(AudioManager.Channel.ambientActive);
             yield return null;
         }
     }

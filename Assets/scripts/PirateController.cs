@@ -101,7 +101,7 @@ public class PirateController : MonoBehaviour
             // enemy will continue to go back and forth between waypoints
         }
     }
-    void Invisib()
+    public void Invisib()
     {
         if (!isCooldown)
         {

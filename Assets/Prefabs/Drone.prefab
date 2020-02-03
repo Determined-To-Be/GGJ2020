@@ -298,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throttle: 0
   rotationInput: {x: 0, y: 0}
-  testMovement: 1
+  testMovement: 0
   maxSpeed: 4
   maxAcceleration: 2.5
   maxAngularSpeed: 0.1

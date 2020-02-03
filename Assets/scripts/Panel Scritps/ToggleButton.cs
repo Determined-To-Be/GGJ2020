@@ -13,7 +13,7 @@ public class ToggleButton : PanelObject
     public float lerpStrength = 15;
 
     [SerializeField]
-    UnityEvent  onToggleDown = new UnityEvent(),
+    public UnityEvent  onToggleDown = new UnityEvent(),
                 onToggleUp = new UnityEvent();
 
     public bool state = true;
