@@ -23,7 +23,7 @@ public class LightColor : MonoBehaviour
         mat.SetFloat("_EmissiveIntensity", color.a);
     }
 
-    Color last = null;
+    Color last = Color.clear;
     // Update is called once per frame
     void Update()
     {   
