@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927197682}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.093, z: 0}
+  m_LocalRotation: {x: -0.00028963384, y: -0.00015476345, z: 0.92297566, w: 0.38485807}
+  m_LocalPosition: {x: 0.013, y: -0.093002185, z: 0.000000008257436}
   m_LocalScale: {x: 0.135, y: 0.135, z: 0.1}
   m_Children: []
   m_Father: {fileID: 5480770482385507180}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.004, y: -0.037, z: 134.73001}
 --- !u!212 &1927197684
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 15904e3a6df52864ca4cf51a7066ea7d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec25467dffe956a418e05bd8c95b1565, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d2200b5270f777a428c79cef0837729b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4451e41aee7e9394f96efa0ab3661135, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,11 +219,11 @@ MonoBehaviour:
   testMovement: 1
   maxSpeed: 4
   maxAcceleration: 2.5
-  maxAngularSpeed: 0.06
-  maxAngularAcceleration: 0.06
+  maxAngularSpeed: 0.1
+  maxAngularAcceleration: 0.1
   drag: 0.95
   boostAccelAngle: 0.03
-  boostSpeed: 1
+  boostSpeed: 1.05
   boostAccel: 4
   boostRenderer: {fileID: 1927197684}
   invisBody: {fileID: 8096088973251367776}
@@ -264,7 +264,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.03
+  m_Radius: 0.04
 --- !u!114 &8692369748234820199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe19aadbd07c7647994c3922913b997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  knockbackMult: 500
+  health: 5
+  knockbackMult: 300
 --- !u!1 &5696782620035955375
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,8 +380,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d2200b5270f777a428c79cef0837729b, type: 3}
-  m_Color: {r: 0, g: 0.02686012, b: 0.6226415, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6dcae132479a13a48b040b5b53d6493b, type: 3}
+  m_Color: {r: 0.30890417, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
