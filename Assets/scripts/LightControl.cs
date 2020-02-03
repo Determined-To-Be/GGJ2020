@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LightControl : MonoBehaviour {
 
+    public bool jacobControl;
+
+    LightColor lightColor;
+    public Color color;
+
     [Range(0, 100)]
     public float flickerRate;
     [Range(0,100)]
@@ -19,6 +24,17 @@ public class LightControl : MonoBehaviour {
     float rng;
     float startBright;
     float BrightGoTo;
+
+    private void Awake()
+    {
+        lightColor = GetComponent<LightColor>();
+
+        if(jacobControl)
+        {
+            bulb = transform.GetChild(0).GetComponent<Light>();
+            //color = transform.GetChild(0).GetComponent<Light>().color;
+        }
+    }
 
     private void Start()
     {
@@ -53,5 +69,8 @@ public class LightControl : MonoBehaviour {
         }
 
         bulb.intensity += (BrightGoTo - bulb.intensity) * Time.deltaTime * flickerHardness;
+
+        if(jacobControl)
+            lightColor.SetColor(new Color(color.r, color.g, color.b, bulb.intensity));
 	}
 }
