@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3945160622565694590
+--- !u!114 &-314834759720721969
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,43 +20,31 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bigbutton
-  m_Shader: {fileID: -6465566751694194690, guid: 25878f2f3fc3f4146848572990f825fa,
-    type: 3}
-  m_ShaderKeywords: 
+  m_Name: selfDestruct
+  m_Shader: {fileID: 4800000, guid: 1d64af84bdc970c4fae0c1e06dd95b73, type: 3}
+  m_ShaderKeywords: _ALBEDOCONTRIBUTION _COLORMAP
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    MotionVector: User
+  stringTagMap: {}
   disabledShaderPasses:
-  - MOTIONVECTORS
+  - DBufferMesh_M
+  - DBufferMesh_AO
+  - DBufferMesh_MAO
+  - Mesh_Emissive
+  - DBufferMesh_MS
+  - DBufferMesh_AOS
+  - DBufferMesh_MAOS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_2A0DC2C9:
-        m_Texture: {fileID: 2800000, guid: 8ca505d3b82aa0a48aa27e11efb55ecd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_6F667849:
-        m_Texture: {fileID: 2800000, guid: 216c1816d7baecb4bbb02e110b94978f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_7A68F8DF:
-        m_Texture: {fileID: 2800000, guid: 2a340fcb59a1f904195529c698ca2799, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_B7DD89F:
-        m_Texture: {fileID: 2800000, guid: f6d0c3c4491426b4990b91c55c998d65, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8adb26d2835b31e499ea306e15200ec5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -136,12 +124,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_A5D7DE2A: 50
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _AlbedoMode: 1
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
@@ -155,6 +143,11 @@ Material:
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
+    - _DecalBlend: 0.93
+    - _DecalMaskMapBlueScale: 1
+    - _DecalMeshDepthBias: 0
+    - _DecalStencilRef: 8
+    - _DecalStencilWriteMask: 8
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
@@ -180,7 +173,9 @@ Material:
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 1
+    - _DrawOrder: 0
     - _DstBlend: 0
+    - _Emissive: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -204,8 +199,15 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
+    - _MaskBlendMode: 4
+    - _MaskBlendSrc: 1
+    - _MaskmapAO: 0
+    - _MaskmapMetal: 0
+    - _MaskmapSmoothness: 1
     - _MaterialID: 1
     - _Metallic: 0
+    - _MetallicScale: 1
+    - _NormalBlendSrc: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _PPDLodThreshold: 5
@@ -257,14 +259,14 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_3641C126: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColorHDR: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
