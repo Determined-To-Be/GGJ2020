@@ -5,7 +5,8 @@ using UnityEngine;
 public class MonitorController : MonoBehaviour
 {
     #pragma warning disable 0649
-    [SerializeField] float staticTime, speed, speedOn;
+    [SerializeField] float maxStaticTime, minStaticTime, speed, speedOn, minStaticDelay, maxStaticDelay;
+    [SerializeField] bool randomOff;
     #pragma warning restore 0649
 
     AudioClip noise;
@@ -23,7 +24,7 @@ public class MonitorController : MonoBehaviour
         screen = gameObject.GetComponent<MeshRenderer>().material;
         noise = AudioManager.Instance.GetSample("ambientActive_noise");
         toggle = screen.GetInt("_TurnOn");
-        StartCoroutine(Interference());
+        if (!randomOff) StartCoroutine(Interference());
     }
 
     void Update()
@@ -52,10 +53,10 @@ public class MonitorController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(15f, 120f));
+            yield return new WaitForSeconds(Random.Range(minStaticDelay, maxStaticDelay));
             AudioManager.Instance.StartSound(AudioManager.Channel.ambientActive, noise);
             screen.SetInt("_Static", toggleStatic = 1);
-            yield return new WaitForSeconds(Random.Range(0.5f, staticTime));
+            yield return new WaitForSeconds(Random.Range(minStaticTime, maxStaticTime));
             screen.SetInt("_Static", toggleStatic = 0);
             AudioManager.Instance.StopSound(AudioManager.Channel.ambientActive);
             yield return null;

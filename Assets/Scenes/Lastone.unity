@@ -2902,6 +2902,22 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
+      propertyPath: maxStaticTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
+      propertyPath: minStaticTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
+      propertyPath: minStaticDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
+      propertyPath: maxStaticDelay
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 1992823124, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -4645,9 +4661,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154411ab5441a4746973f814cbd981b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staticTime: 5
+  maxStaticTime: 4
+  minStaticTime: 0.2
   speed: 4
   speedOn: 0.5
+  minStaticDelay: 30
+  maxStaticDelay: 120
+  randomOff: 0
 --- !u!1 &1970455991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4314102327031467095, guid: e7d4234002b73004b9f27b9cead43358,
@@ -4666,6 +4686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154411ab5441a4746973f814cbd981b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staticTime: 5
+  maxStaticTime: 4
+  minStaticTime: 0.2
   speed: 4
   speedOn: 0.5
+  minStaticDelay: 30
+  maxStaticDelay: 120
+  randomOff: 1
