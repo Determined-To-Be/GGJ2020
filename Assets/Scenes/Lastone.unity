@@ -436,6 +436,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3361185372444564808, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: maxAngularAcceleration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4356523427813050936, guid: 359acb03b6f3a034d8173b5e0992f2b5,
         type: 3}
       propertyPath: dial
@@ -4069,6 +4074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDialChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517448205638142233, guid: e7d4234002b73004b9f27b9cead43358,
+        type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7517448206002877727, guid: e7d4234002b73004b9f27b9cead43358,
         type: 3}
