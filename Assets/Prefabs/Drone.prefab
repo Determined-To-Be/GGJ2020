@@ -302,9 +302,9 @@ MonoBehaviour:
   maxSpeed: 4
   maxAcceleration: 2.5
   maxAngularSpeed: 0.1
-  maxAngularAcceleration: 0.5
+  maxAngularAcceleration: 0.4
   drag: 0.95
-  boostAccelAngle: 0.03
+  boostAccelAngle: 0.05
   boostSpeed: 1.05
   boostAccel: 4
   boostRenderer: {fileID: 1927197684}

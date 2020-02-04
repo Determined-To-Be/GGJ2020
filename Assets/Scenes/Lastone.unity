@@ -436,11 +436,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 3361185372444564808, guid: 359acb03b6f3a034d8173b5e0992f2b5,
-        type: 3}
-      propertyPath: maxAngularAcceleration
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4356523427813050936, guid: 359acb03b6f3a034d8173b5e0992f2b5,
         type: 3}
       propertyPath: dial
@@ -2901,22 +2896,6 @@ PrefabInstance:
     - target: {fileID: 1907164098, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
-      propertyPath: maxStaticTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
-      propertyPath: minStaticTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
-      propertyPath: minStaticDelay
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970455992, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
-      propertyPath: maxStaticDelay
-      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1992823124, guid: e7d4234002b73004b9f27b9cead43358, type: 3}
       propertyPath: m_StaticEditorFlags

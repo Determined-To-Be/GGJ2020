@@ -5401,7 +5401,6 @@ GameObject:
   - component: {fileID: 5855238585417626114}
   - component: {fileID: 8385526563707765094}
   - component: {fileID: 6288094914463258979}
-  - component: {fileID: 1607547869}
   m_Layer: 0
   m_Name: Glass_2
   m_TagString: Untagged
@@ -5470,21 +5469,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1607547869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100809473461901540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154411ab5441a4746973f814cbd981b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staticTime: 5
-  speed: 4
-  speedOn: 0.5
 --- !u!1 &2161324068527923092
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,7 +6504,6 @@ GameObject:
   - component: {fileID: 7924464845735469429}
   - component: {fileID: 7475873134368466009}
   - component: {fileID: 588805887919009792}
-  - component: {fileID: 1970455992}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -6589,21 +6572,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1970455992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4314102327031467095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154411ab5441a4746973f814cbd981b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staticTime: 5
-  speed: 4
-  speedOn: 0.5
 --- !u!1 &4523139041437697187
 GameObject:
   m_ObjectHideFlags: 0
@@ -8137,7 +8105,7 @@ MonoBehaviour:
   onDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1607547869}
+      - m_Target: {fileID: 0}
         m_MethodName: TogglePower
         m_Mode: 1
         m_Arguments:
@@ -10629,7 +10597,7 @@ MonoBehaviour:
   onDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1970455992}
+      - m_Target: {fileID: 0}
         m_MethodName: TogglePower
         m_Mode: 1
         m_Arguments:

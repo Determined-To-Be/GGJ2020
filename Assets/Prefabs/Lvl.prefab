@@ -6517,11 +6517,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
       propertyPath: waypoints.Array.data[4]
       value: 
       objectReference: {fileID: 7109723655282903361}
@@ -6679,11 +6674,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
@@ -9696,11 +9686,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
       propertyPath: m_Name
@@ -11345,11 +11330,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
@@ -16849,11 +16829,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
       propertyPath: m_Name
@@ -18424,11 +18399,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
       propertyPath: m_Name
@@ -19323,11 +19293,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
@@ -20688,11 +20653,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
@@ -23558,11 +23518,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
@@ -27621,11 +27576,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
       propertyPath: waypoints.Array.data[4]
       value: 
       objectReference: {fileID: 7109723655282903361}
@@ -29214,11 +29164,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459582, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
       propertyPath: m_Name
@@ -29888,11 +29833,6 @@ PrefabInstance:
         type: 3}
       propertyPath: aggroRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209700621164459570, guid: 0aef21014d17b1b4cba6b56b401e5799,
         type: 3}
