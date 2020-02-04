@@ -236,6 +236,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1970455992}
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleStatic
+      objectReference: {fileID: 0}
+    - target: {fileID: 544604974187078356, guid: 359acb03b6f3a034d8173b5e0992f2b5,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1876681379722427762, guid: 359acb03b6f3a034d8173b5e0992f2b5,
         type: 3}
       propertyPath: m_Layer

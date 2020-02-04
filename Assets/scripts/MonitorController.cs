@@ -46,7 +46,19 @@ public class MonitorController : MonoBehaviour
     public void TogglePower()
     {
         if (toggleStatic == 0)
-            screen.SetInt("_TurnOn", toggle = toggle == 0 ? 1 : 0);
+            screen.SetInt("_TurnOn", toggle = (toggle == 0 ? 1 : 0));
+    }
+    
+    public void StaticOff()
+    {
+        AudioManager.Instance.StopSound(AudioManager.Channel.ambientActive);
+        screen.SetInt("_Static",  toggleStatic = 0);
+    }
+
+    public void StaticOn()
+    {
+        AudioManager.Instance.StartSound(AudioManager.Channel.ambientActive, noise);
+        screen.SetInt("_Static",  toggleStatic = 1);
     }
 
     IEnumerator Interference()
@@ -54,11 +66,9 @@ public class MonitorController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minStaticDelay, maxStaticDelay));
-            AudioManager.Instance.StartSound(AudioManager.Channel.ambientActive, noise);
-            screen.SetInt("_Static", toggleStatic = 1);
+            StaticOn();
             yield return new WaitForSeconds(Random.Range(minStaticTime, maxStaticTime));
-            screen.SetInt("_Static", toggleStatic = 0);
-            AudioManager.Instance.StopSound(AudioManager.Channel.ambientActive);
+            StaticOff();
             yield return null;
         }
     }
